@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --plum: #4b164c;
+  --plum-soft: #6a2a6b;
+  --pink: #de88cf;
+  --blush: #f8e7f7;
+  --mist: #f5f5f5;
+  --ink: #2a0f2b;
+  --muted: #6f5a70;
+  --line: rgba(75, 22, 76, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-plum: var(--plum);
+  --color-plum-soft: var(--plum-soft);
+  --color-pink: var(--pink);
+  --color-blush: var(--blush);
+  --color-mist: var(--mist);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --shadow-card: 0 1px 2px rgba(75, 22, 76, 0.05), 0 12px 32px -12px rgba(75, 22, 76, 0.16);
+  --shadow-lift: 0 2px 4px rgba(75, 22, 76, 0.06), 0 28px 60px -20px rgba(75, 22, 76, 0.28);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: clip;
 }
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--plum);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--pink);
+}
+
+/* ---------- motion (kept restrained; disabled for reduced-motion) ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scan {
+  0% { transform: translateY(-10%); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+@keyframes flow {
+  to { stroke-dashoffset: -24; }
+}
+@keyframes flow-x {
+  from { background-position: 0 0; }
+  to { background-position: 24px 0; }
+}
+@keyframes fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes tick {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.slide-in { animation: slide-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.scan-line { animation: scan 3.6s ease-in-out infinite; }
+.flow-dash { animation: flow 1.4s linear infinite; }
+.flow-bar {
+  background-image: repeating-linear-gradient(90deg, var(--pink) 0 8px, transparent 8px 16px);
+  animation: flow-x 0.9s linear infinite;
+}
+.tick { animation: tick 1.8s ease-in-out infinite; }
+.fill-bar { transform-origin: left; animation: fill 3.6s ease-in-out infinite; }
+
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.48s; }
+.delay-5 { animation-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- surfaces ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(75, 22, 76, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(75, 22, 76, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 60% at 50% 30%, #000 30%, transparent 100%);
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(80% 70% at 50% 40%, #000 20%, transparent 100%);
+}
+/* 1px gradient border on a rounded card */
+.ring-gradient {
+  position: relative;
+  isolation: isolate;
+}
+.ring-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(140deg, var(--pink), rgba(75, 22, 76, 0.15) 45%, var(--plum));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+.text-gradient {
+  background: linear-gradient(90deg, var(--plum) 0%, #9a4a95 45%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
