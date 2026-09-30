@@ -19,7 +19,7 @@ export function Pricing() {
             lead="No subscription. No usage caps. No “pay until it’s live” fees."
           />
 
-          <div className="ring-gradient relative rounded-[32px] bg-white p-7 shadow-lift sm:p-9">
+          <div data-reveal className="ring-gradient relative rounded-[32px] bg-white p-7 shadow-lift sm:p-9">
             <div className="flex items-end gap-3">
               <span className="text-[64px] font-semibold leading-none tracking-[-0.05em] text-plum sm:text-[80px]">
                 ₹199

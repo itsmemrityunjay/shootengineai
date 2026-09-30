@@ -28,8 +28,8 @@ export function Navbar() {
         aria-label="Primary"
         className={`mx-auto flex h-14 w-full max-w-[1120px] items-center justify-between rounded-full border pl-4 pr-2 transition-all duration-300 sm:pl-5 ${
           scrolled || open
-            ? "border-plum/10 bg-white/80 shadow-[0_8px_30px_-12px_rgba(75,22,76,.25)] backdrop-blur-xl"
-            : "border-transparent bg-transparent"
+            ? "border-plum/10 bg-white/85 shadow-[0_8px_30px_-12px_rgba(75,22,76,.25)] backdrop-blur-xl"
+            : "border-white/15 bg-white/90 shadow-[0_8px_30px_-12px_rgba(0,0,0,.4)] backdrop-blur-xl"
         }`}
       >
         <a href="#top" aria-label="ShootEngine AI home">

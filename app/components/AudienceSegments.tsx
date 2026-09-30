@@ -28,11 +28,11 @@ export function AudienceSegments() {
     <section id="for-sellers" className="py-20 sm:py-28">
       <Container>
         <SectionHead eyebrow="Who it’s for" title="Built for people who sell online." />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div data-reveal className="mt-12 grid gap-4 sm:grid-cols-2">
           {SEGMENTS.map((s, i) => (
             <article
               key={s.t}
-              className={`group flex flex-col rounded-[28px] border p-6 sm:p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card ${
+              className={`spotlight group flex flex-col rounded-[28px] border p-6 sm:p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card ${
                 i === 0 || i === 3
                   ? "border-plum/10 bg-blush/70 hover:bg-blush"
                   : "border-line bg-mist hover:bg-white"

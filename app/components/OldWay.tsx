@@ -20,7 +20,7 @@ export function OldWay() {
           lead="Every handoff costs time and money."
         />
 
-        <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-[1.4fr_auto_1fr] lg:gap-6">
+        <div data-reveal className="mt-12 grid items-stretch gap-4 lg:grid-cols-[1.4fr_auto_1fr] lg:gap-6">
           {/* fragmented */}
           <div className="relative overflow-hidden rounded-[28px] border border-dashed border-plum/20 bg-white/70 p-6 sm:p-8">
             <div className="flex items-center justify-between font-mono text-[10.5px] uppercase tracking-[0.14em] text-plum/50">

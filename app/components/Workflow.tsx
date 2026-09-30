@@ -74,6 +74,7 @@ export function Workflow() {
         />
 
         <div
+          data-reveal
           className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-14"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}

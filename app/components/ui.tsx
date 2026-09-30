@@ -49,7 +49,7 @@ export function SectionHead({
   center?: boolean;
 }) {
   return (
-    <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
+    <div data-reveal className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
       <h2
         className={`mt-4 text-[clamp(2rem,4.6vw,3.5rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-balance ${
@@ -78,20 +78,24 @@ export function PrimaryButton({
   href,
   children,
   onDark = false,
+  glow = false,
   className = "",
 }: {
   href: string;
   children: ReactNode;
   onDark?: boolean;
+  glow?: boolean;
   className?: string;
 }) {
   return (
     <a
       href={href}
-      className={`${base} ${
-        onDark
-          ? "bg-white text-plum hover:bg-blush"
-          : "bg-plum text-white hover:bg-plum-soft"
+      className={`${base} shine ${
+        glow
+          ? "bg-pink font-semibold text-plum shadow-[0_0_0_1px_rgba(255,255,255,.25)_inset,0_12px_40px_-8px_rgba(222,136,207,.85)] hover:bg-[#e79ada]"
+          : onDark
+            ? "bg-white text-plum hover:bg-blush"
+            : "bg-plum text-white shadow-[0_10px_30px_-10px_rgba(75,22,76,.6)] hover:bg-plum-soft"
       } ${className}`}
     >
       {children}

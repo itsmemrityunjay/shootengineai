@@ -33,7 +33,7 @@ function Card({
 }) {
   return (
     <article
-      className={`group flex overflow-hidden rounded-[28px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift ${
+      className={`spotlight group flex overflow-hidden rounded-[28px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift ${
         horizontal ? "flex-col md:flex-row" : "flex-col"
       } ${className}`}
     >
@@ -57,7 +57,7 @@ export function FeatureCards() {
           title={<>Three outputs. <span className="text-gradient">One system.</span></>}
           lead="Made in the same run, so everything matches."
         />
-        <div className="mt-12 grid gap-4 lg:grid-cols-3 lg:gap-5">
+        <div data-reveal className="mt-12 grid gap-4 lg:grid-cols-3 lg:gap-5">
           <Card
             horizontal
             className="lg:col-span-2"

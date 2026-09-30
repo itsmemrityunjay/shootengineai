@@ -31,7 +31,7 @@ export function Comparison() {
           center
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+        <div data-reveal className="mt-12 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[28px] border border-line bg-white p-7 sm:p-9">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-plum/50">Old way</p>
             <ul className="mt-4">

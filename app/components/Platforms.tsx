@@ -16,7 +16,7 @@ export function Platforms() {
           lead="It doesn’t stop at images. Your listing goes straight to your store."
         />
 
-        <div className="relative mt-12 overflow-hidden rounded-[32px] border border-line bg-gradient-to-b from-blush/70 to-white p-5 sm:p-8">
+        <div data-reveal className="relative mt-12 overflow-hidden rounded-[32px] border border-line bg-gradient-to-b from-blush/70 to-white p-5 sm:p-8">
           <div className="grid items-center gap-5 lg:grid-cols-[auto_minmax(24px,1fr)_auto_minmax(24px,1fr)_minmax(0,1.5fr)] lg:gap-4">
             <div className="rounded-2xl bg-plum px-6 py-5 text-center text-white">
               <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-pink">Input</p>

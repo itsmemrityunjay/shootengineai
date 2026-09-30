@@ -1,3 +1,4 @@
+import { Enhancements } from "./components/Enhancements";
 import { AudienceSegments } from "./components/AudienceSegments";
 import { BeforeAfter } from "./components/BeforeAfter";
 import { Comparison } from "./components/Comparison";
@@ -30,6 +31,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <Enhancements />
     </>
   );
 }
